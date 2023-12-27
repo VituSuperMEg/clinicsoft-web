@@ -1,4 +1,5 @@
 import { api } from "../../services/api";
+import { CardIcon } from "./components/CardIcon";
 import { Header } from "./components/Header";
 import { useEffect } from 'react';
 
@@ -54,6 +55,9 @@ export function LadingPage() {
           <img src="public/medicine.svg" alt="" width={800} />
         </div>
       </main>
+      <section className="bg-gray-50">
+        <CardIcon />
+      </section>
     </div>
   );
 }

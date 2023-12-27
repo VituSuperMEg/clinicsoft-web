@@ -1,9 +1,10 @@
-import { LadingPage } from "./modules/landing-page/LadingPage";
+import { BrowserRouter } from 'react-router-dom';
+import { AppRoute } from "./routes/AppRoute";
 
 export default function App () {
   return (
-    <div>
-      <LadingPage />
-    </div>
+    <BrowserRouter>
+      <AppRoute />
+    </BrowserRouter>
   )
 }
