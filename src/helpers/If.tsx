@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-/* @typescript-eslint/no-explicit-any */
+
 interface IIf<T> {
   children?: ReactNode;
   elseNode?: ReactNode;

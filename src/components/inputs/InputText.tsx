@@ -1,4 +1,3 @@
-import React from 'react';
 import InputMask from 'react-input-mask';
 import { IInput } from './interface-input';
 import NextInput from '../../helpers/NextInput';
@@ -12,10 +11,12 @@ export const InputText = ({
   messageErros,
   autofocus,
   next,
+  className,
+  inputStyle,
   ...props
 }: IInput) => {
   return (
-    <div className={`form-group`}>
+    <div className={`${className}`}>
       <If test={label !== undefined}>
         <label htmlFor={name}>
           {label}
@@ -28,7 +29,7 @@ export const InputText = ({
       <InputMask
         name={name}
         mask={maskField}
-        className={`form-control ${next ? 'next' : ''}`}
+        className={`form-control ${inputStyle}`}
         autoFocus={autofocus}
         {...props}
       />
