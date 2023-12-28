@@ -1,11 +1,15 @@
-import { users } from "../../../mocks/mocks"
+import { users } from "../../../mocks/mocks";
 
-export function Header () {
+export function Header() {
   const myUser = users[0];
 
   return (
     <div className="header bg-emerald-50">
-      {myUser.entidade}
+      <div style={{
+        padding : 20
+      }}>
+      <strong>{myUser.entidade}</strong>
+      </div>  
     </div>
-  )
+  );
 }

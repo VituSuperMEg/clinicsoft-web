@@ -1,7 +1,7 @@
-import InputMask from 'react-input-mask';
-import { IInput } from './interface-input';
-import NextInput from '../../helpers/NextInput';
-import { If } from '../../helpers/If';
+import InputMask from "react-input-mask";
+import { IInput } from "./interface-input";
+import NextInput from "../../helpers/NextInput";
+import { If } from "../../helpers/If";
 
 export const InputText = ({
   name,
@@ -20,12 +20,12 @@ export const InputText = ({
       <If test={label !== undefined}>
         <label htmlFor={name}>
           {label}
-          <If test={required === 'required'}>
+          <If test={required === "required"}>
             <span className="required"> *</span>
           </If>
         </label>
       </If>
-      {next && <NextInput />} 
+      {next && <NextInput />}
       <InputMask
         name={name}
         mask={maskField}
@@ -33,7 +33,7 @@ export const InputText = ({
         autoFocus={autofocus}
         {...props}
       />
-      <span style={{ color: 'red' }}>{messageErros}</span>
+      <span style={{ color: "red" }}>{messageErros}</span>
     </div>
   );
 };

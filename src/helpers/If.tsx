@@ -5,13 +5,11 @@ interface IIf<T> {
   elseNode?: ReactNode;
   test: T;
 }
-export function If<T>({
-  children, elseNode, test
-}:IIf<T>) {
+export function If<T>({ children, elseNode, test }: IIf<T>) {
   if (test) {
     return children;
   }
-  if(elseNode) {
+  if (elseNode) {
     return elseNode;
   }
   return null;

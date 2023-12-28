@@ -1,4 +1,4 @@
-import React, { useRef, KeyboardEvent } from 'react';
+import React, { useRef, KeyboardEvent } from "react";
 
 interface NextInputProps {
   onEnter?: () => void;
@@ -9,9 +9,9 @@ const NextInput: React.FC<NextInputProps> = ({ onEnter, next }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter' && onEnter) {
+    if (event.key === "Enter" && onEnter) {
       onEnter();
-    } else if (event.key === 'Enter' && next && inputRef.current) {
+    } else if (event.key === "Enter" && next && inputRef.current) {
       inputRef.current.blur();
       const nextInput = inputRef.current.nextElementSibling as HTMLInputElement;
       if (nextInput) {

@@ -16,10 +16,14 @@ export function CardIcon() {
           </strong>
         </header>
         <p className="text-zinc-600 mt-4 text-pretty">
-          Tenha <strong className="text-emerald-800">controle</strong>, <strong className="text-emerald-800">organização</strong> e <strong className="text-emerald-800">solução</strong>  para seus atendimentos ao
-          paciente.
+          Tenha <strong className="text-emerald-800">controle</strong>,{" "}
+          <strong className="text-emerald-800">organização</strong> e{" "}
+          <strong className="text-emerald-800">solução</strong> para seus
+          atendimentos ao paciente.
           <br />
-          Sem <strong className="text-emerald-800">dores de cabeça</strong>  e com <strong className="text-emerald-800">solução real</strong> as suas demandas.
+          Sem <strong className="text-emerald-800">dores de cabeça</strong> e
+          com <strong className="text-emerald-800">solução real</strong> as suas
+          demandas.
         </p>
       </div>
       <div className="p-11 box m-9 shadow-lg bg-emerald-50 w-96 h-72 rounded-xl">

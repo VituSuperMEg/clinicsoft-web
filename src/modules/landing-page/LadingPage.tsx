@@ -1,22 +1,20 @@
 import { api } from "../../services/api";
 import { CardIcon } from "./components/CardIcon";
 import { Header } from "./components/Header";
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 export function LadingPage() {
-
   useEffect(() => {
     async function getData() {
       try {
-        const response = await api.get('/agendamentos');
-        console.log(response.data)
-      }catch (err) {
-        console.log(err)
+        const response = await api.get("/agendamentos");
+        console.log(response.data);
+      } catch (err) {
+        console.log(err);
       }
-      
     }
     getData();
-  }, [])
+  }, []);
   return (
     <div className="bg-gray-50 h-dvh">
       <Header />

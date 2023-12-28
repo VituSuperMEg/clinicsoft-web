@@ -5,8 +5,8 @@ import { Painel } from "../modules/painel/Painel";
 export function AppRoute() {
   return (
     <Routes>
-      <Route path="/" element={<LadingPage />}/>
+      <Route path="/" element={<LadingPage />} />
       <Route path="/painel" element={<Painel />} />
     </Routes>
-  )
+  );
 }

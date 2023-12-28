@@ -1,12 +1,12 @@
 import { InputText } from "../../../components/inputs/InputText";
 import { WeekColor } from "../components/WeekColor";
-import { Formik, Field, Form, ErrorMessage} from "formik";
-import * as yup from 'yup';
+import { Formik, Field, Form, ErrorMessage } from "formik";
+import * as yup from "yup";
 
 const LoginValidation = yup.object().shape({
-  cpf : yup.string().required('Informe o número do cpf'),
-  password : yup.string().required('Informe sua senha'),
-})
+  cpf: yup.string().required("Informe o número do cpf"),
+  password: yup.string().required("Informe sua senha"),
+});
 export function Login() {
   const emptyObject = {
     cpf: "",
@@ -33,7 +33,10 @@ export function Login() {
               }}
             >
               {({ handleChange, handleSubmit }) => (
-                <Form className="h-5/6 flex column items-center justify-center gap-8 w-full" onSubmit={handleSubmit}>
+                <Form
+                  className="h-5/6 flex column items-center justify-center gap-8 w-full"
+                  onSubmit={handleSubmit}
+                >
                   <Field
                     id="cpf"
                     label="CPF"
@@ -46,7 +49,7 @@ export function Login() {
                     onChange={handleChange}
                     messageErros={<ErrorMessage name="cpf" />}
                   />
-                  <Field 
+                  <Field
                     id="password"
                     label="Senha"
                     name="password"

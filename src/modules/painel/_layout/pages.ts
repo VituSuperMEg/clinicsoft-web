@@ -1,18 +1,23 @@
 import { DashBoard } from "../pages/Dashborad";
-import { Medicos } from "../pages/Medicos";
-import { Setor } from "../pages/Setor";
+import { Exames } from "../pages/agendamentos/exames";
+import { Medicos } from "../pages/cadastros/Medicos";
+import { Setor } from "../pages/cadastros/Setor";
 
 export const pages = [
   {
-    page : "dashboard",
-    component : DashBoard
+    page: "dashboard",
+    component: DashBoard,
   },
   {
-    page : "setor",
-    component : Setor
+    page: "Setor",
+    component: Setor,
   },
   {
-    page : "medicos",
-    component : Medicos
+    page: "medicos",
+    component: Medicos,
+  },
+  {
+    page : 'Exames',
+    component : Exames
   }
-]
+];
