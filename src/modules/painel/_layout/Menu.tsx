@@ -1,15 +1,12 @@
-// Menu.jsx
-import { NavLink, useNavigate, Link } from "react-router-dom";
-
 interface IMenu {
   onNavigatePage : (page : string) => void;
 }
 export function Menu({
   onNavigatePage
 }:IMenu) {
-  
+
   return (
-    <ul className="bg-emerald-800 w-72 h-screen">
+    <ul className="bg-white  w-72 h-screen shadow">
       <li onClick={() => onNavigatePage('dashboard')}>
         Dashboard
       </li>

@@ -1,6 +1,6 @@
 export function Setor () {
   return (
-    <div>
+    <div className="crud">
       Setor
     </div>
   )

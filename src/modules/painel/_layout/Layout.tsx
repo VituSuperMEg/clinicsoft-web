@@ -1,11 +1,11 @@
-// Layout.jsx
 import React, { useState, createElement } from "react";
 import { Menu } from "./Menu";
 import { pages } from "./pages";
+import { Header } from "./Header";
 
 export function Layout() {
-  const [currentPage, setCurrentPage] = useState(null);
-  console.log(currentPage)
+  const [currentPage, setCurrentPage] = useState('null');
+  
   function handleNavigatePage(page: string) {
     const selectedPage = pages.find((p) => p.page.toLowerCase() === page.toLowerCase());
 
@@ -17,8 +17,8 @@ export function Layout() {
   return (
     <div className="flex">
       <Menu onNavigatePage={handleNavigatePage} />
-      <div>
-        <header>Seu cabeçalho aqui</header>     
+      <div className="w-full h-screen">
+        <Header />  
         {currentPage && createElement(currentPage)}
       </div>
     </div>

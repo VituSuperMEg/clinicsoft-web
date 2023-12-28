@@ -1,8 +1,25 @@
+/* 
+ Css das paginas
+*/
 .container {
   margin : 0 auto;
 }
-.required {
-  color : red;
+.header {
+  margin : 10px 50px;
+  height : 120px;
+  border-radius : 6px;
+  width: 100;
+}
+.shadow {
+  box-shadow : 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.crud {
+  margin : 20px 50px;
+  background : #fff;
+  height : calc(100% - 180px);
+  border-radius : 6px;
+  box-shadow : 0 0 5px rgba(0, 0, 0, 0.1);
+  width: 100;
 }
 /* 
  Flex Content
@@ -31,6 +48,9 @@
   border-radius : 6px;
   outline : none;
   padding : 20px;
+}
+.required {
+  color : red;
 }
 /* Blur */
 .home-blur {
