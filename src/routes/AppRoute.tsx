@@ -6,9 +6,7 @@ export function AppRoute() {
   return (
     <Routes>
       <Route path="/" element={<LadingPage />}/>
-      <Route path="/painel">
-        <Route path="/painel" element={<Painel />} />
-      </Route>
+      <Route path="/painel" element={<Painel />} />
     </Routes>
   )
 }
