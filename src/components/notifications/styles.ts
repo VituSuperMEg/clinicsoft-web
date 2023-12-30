@@ -38,6 +38,7 @@ export const RecentNofications = styled.div`
     max-width: 100%;
     height: 100%;
     margin-top: 25px;
+    margin-bottom : 10px;
     div {
       margin-bottom: 5px;
       border-radius: 6px;
