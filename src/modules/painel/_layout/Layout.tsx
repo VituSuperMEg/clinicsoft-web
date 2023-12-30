@@ -5,7 +5,7 @@ import { Header } from "./Header";
 import { If } from "../../../helpers/If";
 import { Breadcrumbs } from "../../../components/breadCrumbs/BreadCrumbs";
 import { PillMenu } from "./PillMenu";
-import { UserInfo } from "../../../components/UserInfo";
+import { UserInfo } from "../../../components/userInfo/UserInfo";
 
 export function Layout() {
   const [currentPage, setCurrentPage] = useState("null");

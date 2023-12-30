@@ -1,4 +1,4 @@
-import { messagesMocks } from "../../mocks/mocks";
+import { messagesMocks } from "../../../mocks/mocks";
 import { RecentNofications } from "./styles";
 
 export function RecentNoficationsService() {

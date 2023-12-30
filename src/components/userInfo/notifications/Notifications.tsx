@@ -1,7 +1,7 @@
 import { Bell } from "@phosphor-icons/react";
 import { NoficationContainer } from "./styles";
 import { useState } from "react";
-import { If } from "../../helpers/If";
+import { If } from "../../../helpers/If";
 import { RecentNoficationsService } from "./RecentNofication";
 
 interface INofications {

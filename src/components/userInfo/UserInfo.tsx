@@ -1,9 +1,10 @@
 import { Avatar, AvatarImage } from "@radix-ui/react-avatar";
 import { SignOut } from "@phosphor-icons/react";
 import { useUser } from "../../state/auth";
-import { Notifications } from "../notifications/Notifications";
+import { Notifications } from "./notifications/Notifications";
 import { Tooltip, OverlayTrigger } from "react-bootstrap";
 import { Messages } from "../../helpers/messages";
+import { Plight } from "./plight/Plight";
 
 export function UserInfo() {
   const msg = new Messages();
@@ -17,6 +18,7 @@ export function UserInfo() {
   }
   return (
     <div className="flex items-center gap-3 pr-5">
+      <Plight status="0" />
       <Notifications notification={5} />
       <Avatar>
         <AvatarImage src="/vite.svg" />
