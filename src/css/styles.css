@@ -1,6 +1,15 @@
 /* 
  Css das paginas
 */
+.body {
+  background: #E5EDEC;
+}
+.left {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
 .container {
   margin: 0 auto;
 }
@@ -14,10 +23,11 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 .crud {
-  margin: 50px;
   background: #fff;
-  height: calc(100% - 80px);
+  height: 100%;
   border-radius: 6px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   width: 100;
 }

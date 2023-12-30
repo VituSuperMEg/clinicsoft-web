@@ -26,7 +26,7 @@ export function Menu({ onNavigatePage }: IMenu) {
   };
 
   return (
-    <ul className="bg-white w-72 h-screen shadow pt-28  flex column justify-between pb-12 border-top-left">
+    <ul className=" w-72 h-screen  pt-28  flex column justify-between pb-12 border-top-left">
       <div>
         <li className="clicked" onClick={() => onNavigatePage("dashboard")}>
           <HouseSimple size={30} />
@@ -161,13 +161,6 @@ export function Menu({ onNavigatePage }: IMenu) {
             </ul>
           )}
         </li>
-      </div>
-      <div>
-        <Avatar.Root className="rounded-sm">
-          <Avatar.Image src="https://avatars.githubusercontent.com/u/67121891?v=4" width={50} height={50}  className="AvatarImage"/>
-          <Avatar.Fallback />
-        </Avatar.Root>
-        <SignOut size={30} />
       </div>
     </ul>
   );

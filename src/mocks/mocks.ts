@@ -20,3 +20,24 @@ export const pacientes = [
     rg: "98765432-1",
   },
 ];
+
+export const messagesMocks = [
+  {
+    id : 1,
+    remetente: 'Borgin',
+    message : 'Doutor Vitor, poderia me informa quando vou fazer o retorno para levar a dedada , pois gostei muito.Doutor Vitor, poderia me informa quando vou fazer o retorno para levar a dedada , pois gostei muito.Doutor Vitor, poderia me informa quando vou fazer o retorno para levar a dedada , pois gostei muito.Doutor Vitor, poderia me informa quando vou fazer o retorno para levar a dedada , pois gostei muito.Doutor Vitor, poderia me informa quando vou fazer o retorno para levar a dedada , pois gostei muito.Doutor Vitor, poderia me informa quando vou fazer o retorno para levar a dedada , pois gostei muito. ',
+    lida : true
+  },
+  {
+    id : 2,
+    remetente: 'Alex',
+    message : 'Eita Doutor do dedo bom',
+    lida : false
+  },
+  {
+    id : 3,
+    remetente: 'Marcos',
+    lida : false,
+    message : 'Esse doutor não tem um dedo não, pense num dedo grande!'
+  }
+]

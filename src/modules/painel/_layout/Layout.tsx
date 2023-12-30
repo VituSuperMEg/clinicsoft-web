@@ -5,6 +5,7 @@ import { Header } from "./Header";
 import { If } from "../../../helpers/If";
 import { Breadcrumbs } from "../../../components/breadCrumbs/BreadCrumbs";
 import { PillMenu } from "./PillMenu";
+import { UserInfo } from "../../../components/UserInfo";
 
 export function Layout() {
   const [currentPage, setCurrentPage] = useState("null");
@@ -37,21 +38,28 @@ export function Layout() {
       <div className="w-full h-screen">
         {/* <Header /> */}
         <If test={aba !== "dashboard"}>
-          <div style={{
+          {/* <div style={{
             margin: '20px 50px'
           }}>
           <PillMenu onNavigatePage={handleNavigatePage} pages={recentAba} />
-          </div>
+          </div> */}
           <div className="crud">
-            <Breadcrumbs page={aba} menu={abaMenu} />
+            <If test={aba}>
+              <div className="left h-16">
+               <UserInfo /> 
+              </div>
+              <Breadcrumbs page={aba} menu={abaMenu} />
+            </If>
             {currentPage && createElement(currentPage)}
           </div>
         </If>
         <If test={aba === "dashboard"}>
-          <div style={{
-            margin: '20px 50px'
-          }}>
-            <PillMenu onNavigatePage={handleNavigatePage} pages={recentAba} />
+          <div
+            style={{
+              margin: "20px 50px",
+            }}
+          >
+            {/* <PillMenu onNavigatePage={handleNavigatePage} pages={recentAba} /> */}
             {currentPage && createElement(currentPage)}
           </div>
         </If>
