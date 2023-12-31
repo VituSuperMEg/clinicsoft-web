@@ -41,3 +41,17 @@ export const messagesMocks = [
     message : 'Esse doutor não tem um dedo não, pense num dedo grande!'
   }
 ]
+export const setorMocks = [
+  {
+    id : 1,
+    descricao : 'Médico Geral',
+    cbo : '225125',
+    quantidade_de_profissionais : 120
+  },
+  {
+    id : 2,
+    descricao : 'Médico Cirugião',
+    cbo : '225125',
+    quantidade_de_profissionais : 10
+  },
+]

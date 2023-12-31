@@ -45,7 +45,7 @@ export function LadingPage() {
             abordagem moderna e eficaz na prestação de serviços de saúde.
           </p>
 
-          <button className="bg-emerald-800 p-5 rounded-xl text-white mt-5 hover:bg-emerald-700 ease-in">
+          <button className="bg-emerald-800 p-3 rounded-md text-white mt-5 hover:bg-emerald-700 ease-in">
             <strong>Entre em contato!</strong>
           </button>
         </div>

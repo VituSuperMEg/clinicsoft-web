@@ -1,6 +1,20 @@
 /* 
  Css das paginas
 */
+.btn-crud {
+  background :#49cca7;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap : 10px;
+  border-radius: 6px;
+}
+.btn-crud:hover{
+  transition: .2s;
+  filter : brightness(0.9);
+}
 .body {
   background: #E5EDEC;
 }
