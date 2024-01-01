@@ -1,6 +1,7 @@
 import { Field } from "formik";
 import { Crud } from "../../../../components/crud/Crud";
 import { InputText } from "../../../../components/inputs/InputText";
+import { setorMocks } from "../../../../mocks/mocks";
 
 export function Setor() {
   return (
@@ -11,18 +12,25 @@ export function Setor() {
           <>
             <Field
               id="descricao"
-              name="descricao"q
+              name="descricao"
               label="Descrição"
               component={InputText}
               onChange={props.handleChange}
             />
-            <button type="submit">Salvar</button>
+            <Field
+              id="cbo"
+              name="cbo"
+              label="Cbo"
+              mask="9999-99"
+              component={InputText}
+              onChange={props.handleChange}
+            />
           </>
         )}
         initialValues={{
           id: "",
           descricao: "",
-          cbo : ""
+          cbo: "",
         }}
       />
     </div>

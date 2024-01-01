@@ -17,9 +17,8 @@ export function Crud ({
   
   const [viewPage, setViewPage] = useState(view);
   const [idItem, setIdItem] = useState(0);
-
   function handleAlterCrudPage(view : string) {
-     setViewPage(view);
+    setViewPage(view);
   }
   return ( 
     <div>
@@ -40,8 +39,12 @@ export function Crud ({
         />
       </If>
       <If test={viewPage === 'edit'}>
-        <p>editando um item</p>
-        <p>{idItem}</p>
+        <Form 
+         view="edit"
+         itemId={idItem}
+         initialValues={initialValues}
+         children={formComponent}
+        />
       </If>
     </div>
   )
