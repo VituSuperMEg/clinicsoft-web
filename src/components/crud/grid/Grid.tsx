@@ -1,7 +1,8 @@
-import { Pencil } from "@phosphor-icons/react";
+import { PencilSimple } from "@phosphor-icons/react";
 import { setorMocks } from "../../../mocks/mocks";
 import { useEffect, useState } from "react";
 import { api } from "../../../services/api";
+import { Table } from "../styles";
 
 interface IGrid {
   onViewChange: (view: string) => void;
@@ -29,13 +30,13 @@ export function Grid({ onViewChange, onEditId, endPoint, fiedls}: IGrid) {
   }, []);
 
   return (
-    <div>
-      <table>
+    <div className="p-6">
+      <Table>
         <thead>
           {fiedls.map(i => (
-            <th>{i.label}</th>
+            <th className="text-zinc-500">{i.label}</th>
           ))}
-           <th>Ações</th>
+           <th className="text-zinc-500">Ações</th>
         </thead>
         <tbody>
           {data.map((data) => (
@@ -43,8 +44,20 @@ export function Grid({ onViewChange, onEditId, endPoint, fiedls}: IGrid) {
               {fiedls.map(i => (
                 <td>{data[i.name]}</td>
               ))}
-              <td>
-                <Pencil
+              <td 
+               className="bg-emerald-500 mt-2"
+               style={{
+                 width: '50px',
+                 height: '50px',
+                 display: 'flex',
+                 alignItems: 'center',
+                 justifyContent: 'center',
+                 borderRadius : '50%'
+               }}
+              >
+                <PencilSimple
+                  color="#000"
+                  className="clicked"
                   onClick={() => {
                     handleViewCrud("edit");
                     onEditId(data.id);
@@ -54,7 +67,7 @@ export function Grid({ onViewChange, onEditId, endPoint, fiedls}: IGrid) {
             </tr>
           ))}
         </tbody>
-      </table>
+      </Table>
     </div>
   );
 }

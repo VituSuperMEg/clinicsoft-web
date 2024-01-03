@@ -1,5 +1,6 @@
 import { Plus } from "@phosphor-icons/react"
 import { If } from "../../../helpers/If"
+import { Search } from "../search/Search";
 
 interface IButtons {
   view : string;
@@ -20,9 +21,13 @@ export function Buttons ({
     }
   }
   return (
-    <div className="left pr-5 mt-4">
+    <div className="flex justify-between pr-5 mt-4">
+      <If test={view === 'list'}>
+       <Search />
+      </If>
+      <p></p>
       <button 
-       className="btn-crud"
+       className="btn-crud bg-emerald-500"
        onClick={
         () => handleViewChange(view)
        }
