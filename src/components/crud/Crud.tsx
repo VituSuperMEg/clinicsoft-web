@@ -30,6 +30,7 @@ export function Crud ({
       />
       <If test={viewPage === 'list'}>
        <Grid
+         endPoint={endPoint}
         onEditId={setIdItem}
         onViewChange={handleAlterCrudPage}
        />

@@ -1,14 +1,29 @@
 import { Pencil } from "@phosphor-icons/react";
 import { setorMocks } from "../../../mocks/mocks";
+import { useEffect, useState } from "react";
+import { api } from "../../../services/api";
 
 interface IGrid {
   onViewChange: (view: string) => void;
   onEditId: (id: number) => void;
+  endPoint : string
 }
-export function Grid({ onViewChange, onEditId }: IGrid) {
+export function Grid({ onViewChange, onEditId, endPoint}: IGrid) {
+
+  const [data, setData] = useState([]);
+  
   function handleViewCrud(view: string) {
     onViewChange(view);
   }
+
+  useEffect(() => {
+     async function loadData() {
+       const response = await api.get(`${endPoint}`);
+       setData(response.data)
+     }
+     loadData();
+  }, []);
+
   return (
     <div>
       <table>
@@ -20,12 +35,12 @@ export function Grid({ onViewChange, onEditId }: IGrid) {
           <th>Ações</th>
         </thead>
         <tbody>
-          {setorMocks.map((setor) => (
+          {data.map((data) => (
             <tr>
-              <td>{setor.id}</td>
-              <td>{setor.descricao}</td>
-              <td>{setor.cbo}</td>
-              <td>{setor.quantidade_de_profissionais}</td>
+              <td>{data.id}</td>
+              <td>{data.nome}</td>
+              <td>{data.cbo}</td>
+              <td></td>
               <td>
                 <Pencil
                   onClick={() => {

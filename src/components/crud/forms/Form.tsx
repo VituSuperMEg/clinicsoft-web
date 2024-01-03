@@ -29,8 +29,8 @@ export function Form({ initialValues, children, view = 'create', itemId, endPoin
     <Formik
       initialValues={initialValues}
       onSubmit={async (values : any) => {
-        await api(`${endPoint}/create`, values);
-        msg.success('Registro cadastrado com sucesso!');
+        const response = await api.post(`${endPoint}-create/`, values);
+        await msg.success('Registro cadastrado com sucesso!');
       }}
     >
       {(formikProps) => (

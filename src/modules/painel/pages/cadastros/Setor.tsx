@@ -25,6 +25,14 @@ export function Setor() {
               component={InputText}
               onChange={props.handleChange}
             />
+            <Field
+              id="cbo"
+              name="cbo"
+              label="Cbo"
+              mask="9999-99"
+              component={InputText}
+              onChange={props.handleChange}
+            />
           </>
         )}
         initialValues={{

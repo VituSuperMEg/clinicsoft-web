@@ -4,8 +4,6 @@ import { Messages } from "../../../../helpers/messages";
 import { InputText } from "../../../../components/inputs/InputText";
 
 export function Medicos() {
-  const msg = new Messages();
-
   return (
     <div>
      <Crud
