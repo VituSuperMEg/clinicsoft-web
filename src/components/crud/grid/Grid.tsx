@@ -1,5 +1,4 @@
 import { PencilSimple } from "@phosphor-icons/react";
-import { setorMocks } from "../../../mocks/mocks";
 import { useEffect, useState } from "react";
 import { api } from "../../../services/api";
 import { Table } from "../styles";
@@ -63,6 +62,7 @@ export function Grid({ onViewChange, onEditId, endPoint, fiedls}: IGrid) {
                     onEditId(data.id);
                   }}
                 />
+
               </td>
             </tr>
           ))}
