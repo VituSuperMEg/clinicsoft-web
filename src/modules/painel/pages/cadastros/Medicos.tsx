@@ -1,20 +1,25 @@
-import { Field } from "formik";
+import { ErrorMessage, Field } from "formik";
 import { Crud } from "../../../../components/crud/Crud";
 import { InputText } from "../../../../components/inputs/InputText";
+import * as yup from 'yup';
 
+const medicosValidation = yup.object().shape({
+  nome :  yup.string().required('Campo Obrigátorio'),
+  crm : yup.string().required('Campo Obrigátorio')
+})
 export function Medicos() {
   return (
     <div>
       <Crud
-      initialValues={{
-        nome: "",
-        crm: "",
-        telefone: "",
-        cbo: "",
-        especializacao: "",
-        setor_id: 1,
-      }}
-        view="list"
+        initialValues={{
+          nome: "",
+          crm: "",
+          telefone: "",
+          cbo: "",
+          especializacao: "",
+          setor_id: 1,
+        }}
+        validation={medicosValidation}
         fiedls={[
           {
             label: "CRM",
@@ -39,27 +44,32 @@ export function Medicos() {
         ]}
         endPoint="/medicos"
         formComponent={(props) => (
-          <> 
-          {console.log(props)}
+          <>
+            {console.log(props)}
             <Field
               id="nome"
               name="nome"
+              required="required"
               label="Nome"
               value={props.values.nome}
               component={InputText}
               onChange={props.handleChange}
+              messageErros={<ErrorMessage name="nome"/>}
             />
             <Field
               id="crm"
               name="crm"
+              required="required"
               label="CRM"
               value={props.values.crm}
               component={InputText}
               onChange={props.handleChange}
+              messageErros={<ErrorMessage name="crm"/>}
             />
             <Field
               id="cbo"
               name="cbo"
+              required="required"
               label="Cbo"
               value={props.values.cbo}
               component={InputText}
@@ -68,6 +78,7 @@ export function Medicos() {
             <Field
               id="telefone"
               name="telefone"
+              required="required"
               value={props.values.telefone}
               label="Telefone"
               component={InputText}
@@ -75,6 +86,7 @@ export function Medicos() {
             />
             <Field
               id="especializacao"
+              required="required"
               name="especializacao"
               label="Especialização"
               value={props.values.especializacao}
@@ -83,7 +95,6 @@ export function Medicos() {
             />
           </>
         )}
-        
       />
     </div>
   );

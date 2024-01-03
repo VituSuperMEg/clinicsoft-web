@@ -1,9 +1,9 @@
 import { Formik, Form as FormikForm, FormikHelpers } from "formik";
 import { If } from "../../../helpers/If";
 import { useEffect, useState } from "react";
-import { setorMocks } from "../../../mocks/mocks";
 import { api } from "../../../services/api";
 import { Messages } from "../../../helpers/messages";
+import * as yup from 'yup';
 
 interface IForm {
   initialValues: [];
@@ -12,6 +12,7 @@ interface IForm {
   itemId?: number;
   endPoint: string;
   onAlterPage : (view : string) => void
+  validation: (yup: typeof yup) => yup.ObjectSchema<Partial<FormValues>>;
 }
 export function Form({
   initialValues,
@@ -19,7 +20,8 @@ export function Form({
   view = "create",
   itemId,
   endPoint,
-  onAlterPage
+  onAlterPage,
+  validation
 }: IForm) {
   const [item, setItem] = useState([]);
   const msg = new Messages();
@@ -33,17 +35,20 @@ export function Form({
   }, [itemId]);
 
   async function remove() {
-     const check = await msg.confirmationDeleteReturn('Are you sure you want to remove this item?');
+     const check = await msg.confirmationDeleteReturn('Tem certeza de que deseja excluir este item?');
      if(check) {
        api.delete(`${endPoint}/${itemId}/`);
        msg.success("Registro excluído com sucesso!");
-       onAlterPage('list')
+       setInterval(() => {
+        onAlterPage('list');
+       }, 1000);   
     }
   }
   return (
     <>
       <If test={view === "create"}>
         <Formik
+          validationSchema={validation}
           initialValues={initialValues}
           onSubmit={async (values: any) => {
             await api.post(`${endPoint}-create/`, values);
@@ -72,6 +77,7 @@ export function Form({
         <Formik
           initialValues={item}
           enableReinitialize
+          validationSchema={validation}
           onSubmit={async (values) => {
             await api.put(`${endPoint}/${itemId}/`,values);
             msg.success("Registro alterado com sucesso!");
