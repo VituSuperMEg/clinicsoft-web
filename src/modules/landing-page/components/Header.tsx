@@ -5,7 +5,7 @@ export function Header() {
   return (
     <div className="p-6 flex items-center justify-between">
       <strong className="text-2xl text-emerald-800">ClinicSoft</strong>
-      <ul className="flex gap-5 items-center">
+      <ul className="flex gap-4 items-center">
         <a href="#" className="bg-emerald-800 p-2 rounded-md text-slate-50">
           Planos
         </a>

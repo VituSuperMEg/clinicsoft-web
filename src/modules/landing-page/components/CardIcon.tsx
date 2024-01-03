@@ -9,13 +9,13 @@ export function CardIcon() {
       }}
     >
       <div className="p-11 box m-9 shadow-lg bg-emerald-50 w-96 h-72 rounded-xl">
-        <header className="flex flex-col gap-5">
+        <header className="flex flex-col gap-4">
           <Heart color="#065f46" weight="fill" size={50} />
           <strong className="text-emerald-800">
             Controle de Atendimento ao Paciente
           </strong>
         </header>
-        <p className="text-zinc-600 mt-4 text-pretty">
+        <p className="text-zinc-600 mt-3 text-pretty">
           Tenha <strong className="text-emerald-800">controle</strong>,{" "}
           <strong className="text-emerald-800">organização</strong> e{" "}
           <strong className="text-emerald-800">solução</strong> para seus
@@ -27,7 +27,7 @@ export function CardIcon() {
         </p>
       </div>
       <div className="p-11 box m-9 shadow-lg bg-emerald-50 w-96 h-72 rounded-xl">
-        <header className="flex flex-col gap-5">
+        <header className="flex flex-col gap-4">
           <Broadcast color="#065f46" weight="fill" size={50} />
           <strong className="text-emerald-800">
             Gerenciamento Rápido e Eficaz
@@ -41,7 +41,7 @@ export function CardIcon() {
         </header>
       </div>
       <div className="p-11 box m-9 shadow-lg bg-emerald-50 w-96 h-72 rounded-xl">
-        <header className="flex flex-col gap-5">
+        <header className="flex flex-col gap-4">
           <ArchiveBox color="#065f46" weight="fill" size={50} />
           <strong className="text-emerald-800">Controle de Estoque </strong>
           <p className="text-zinc-600">
@@ -53,7 +53,7 @@ export function CardIcon() {
         </header>
       </div>
       <div className="p-11 box m-9 shadow-lg bg-emerald-50 w-96 h-72 rounded-xl">
-        <header className="flex flex-col gap-5">
+        <header className="flex flex-col gap-4">
           <Pill color="#065f46" weight="fill" size={50} />
           <strong className="text-emerald-800">
             {" "}
