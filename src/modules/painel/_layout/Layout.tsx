@@ -1,4 +1,4 @@
-import React, { useState, createElement } from "react";
+import React, { useState, createElement, useEffect } from "react";
 import { Menu } from "./Menu";
 import { pages } from "./pages";
 import { Header } from "./Header";
@@ -12,7 +12,13 @@ export function Layout() {
   const [aba, setAba] = useState("");
   const [abaMenu, setAbaMenu] = useState("");
   const [recentAba, setRecentAba] = useState([]);
-
+  
+  useEffect(() => {
+    if(currentPage === 'null')  {
+      setAba('dashboard');
+      setCurrentPage(() => pages[0]?.component);
+    }
+  }, [currentPage])
   function handleNavigatePage(page: string, menu: string) {
     setAba(page);
     setAbaMenu(menu);

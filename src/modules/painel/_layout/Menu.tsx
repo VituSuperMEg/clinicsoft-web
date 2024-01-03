@@ -8,9 +8,7 @@ import {
   FileText,
   CurrencyDollar,
   User,
-  SignOut,
 } from "@phosphor-icons/react";
-import * as Avatar from "@radix-ui/react-avatar";
 
 interface IMenu {
   onNavigatePage: (page: string, menu?: string) => void;
