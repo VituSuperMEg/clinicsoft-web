@@ -1,55 +1,61 @@
-import { ReactNode, useState } from "react"
-import { Buttons } from "./buttons/Buttons"
+import { ReactNode, useState } from "react";
+import { Buttons } from "./buttons/Buttons";
 import { If } from "../../helpers/If";
 import { Grid } from "./grid/Grid";
 import { Form } from "./forms/Form";
 
 interface ICrud {
-  view : string,
-  formComponent : (formikProps: any) => ReactNode,
-  initialValues : any,
-  endPoint : string
+  view: string;
+  formComponent: (formikProps: any) => ReactNode;
+  initialValues: any;
+  endPoint: string;
+  fiedls: [
+    {
+      name: string;
+      label: string;
+    },
+  ];
 }
-export function Crud ({
+export function Crud({
   view,
   initialValues,
   formComponent,
-  endPoint
-}:ICrud) {
-  
+  endPoint,
+  fiedls,
+}: ICrud) {
   const [viewPage, setViewPage] = useState(view);
   const [idItem, setIdItem] = useState(0);
-  function handleAlterCrudPage(view : string) {
+  function handleAlterCrudPage(view: string) {
     setViewPage(view);
   }
-  return ( 
+  return (
     <div>
-      <Buttons 
-        view={viewPage} 
-        onViewChange={handleAlterCrudPage}
-      />
-      <If test={viewPage === 'list'}>
-       <Grid
-         endPoint={endPoint}
-        onEditId={setIdItem}
-        onViewChange={handleAlterCrudPage}
-       />
-      </If>
-      <If test={viewPage === 'create'}>
-        <Form 
-         endPoint={endPoint}
-         initialValues={initialValues}
-         children={formComponent}
+      <Buttons view={viewPage} onViewChange={handleAlterCrudPage} />
+      <If test={viewPage === "list"}>
+        <Grid
+          endPoint={endPoint}
+          fiedls={fiedls}
+          onEditId={setIdItem}
+          onViewChange={handleAlterCrudPage}
         />
       </If>
-      <If test={viewPage === 'edit'}>
-        <Form 
-         view="edit"
-         itemId={idItem}
-         initialValues={initialValues}
-         children={formComponent}
+      <If test={viewPage === "create"}>
+        <Form
+          endPoint={endPoint}
+          initialValues={initialValues}
+          children={formComponent}
+          onAlterPage={handleAlterCrudPage}
+        />
+      </If>
+      <If test={viewPage === "edit"}>
+        <Form
+          view="edit"
+          endPoint={endPoint}
+          itemId={idItem}
+          initialValues={initialValues}
+          children={formComponent}
         />
       </If>
     </div>
-  )
+  );
 }

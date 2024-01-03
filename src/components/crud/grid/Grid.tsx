@@ -6,9 +6,13 @@ import { api } from "../../../services/api";
 interface IGrid {
   onViewChange: (view: string) => void;
   onEditId: (id: number) => void;
-  endPoint : string
+  endPoint : string,
+  fiedls : [{
+    label : string
+    name : string
+  }]
 }
-export function Grid({ onViewChange, onEditId, endPoint}: IGrid) {
+export function Grid({ onViewChange, onEditId, endPoint, fiedls}: IGrid) {
 
   const [data, setData] = useState([]);
   
@@ -28,24 +32,22 @@ export function Grid({ onViewChange, onEditId, endPoint}: IGrid) {
     <div>
       <table>
         <thead>
-          <th>Id</th>
-          <th>Descrição</th>
-          <th>CBO</th>
-          <th>Quantidade</th>
-          <th>Ações</th>
+          {fiedls.map(i => (
+            <th>{i.label}</th>
+          ))}
+           <th>Ações</th>
         </thead>
         <tbody>
           {data.map((data) => (
             <tr>
-              <td>{data.id}</td>
-              <td>{data.nome}</td>
-              <td>{data.cbo}</td>
-              <td></td>
+              {fiedls.map(i => (
+                <td>{data[i.name]}</td>
+              ))}
               <td>
                 <Pencil
                   onClick={() => {
                     handleViewCrud("edit");
-                    onEditId(setor.id);
+                    onEditId(data.id);
                   }}
                 />
               </td>
