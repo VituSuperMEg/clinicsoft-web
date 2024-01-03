@@ -38,4 +38,11 @@ export class Messages {
     });
     return res;
   }
+  success(msg) {
+    Swal.fire({
+      icon: 'success',
+      title: 'Sucesso',
+      text: msg,
+    });
+  }
 }

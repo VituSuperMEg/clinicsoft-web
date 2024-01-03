@@ -8,11 +8,13 @@ interface ICrud {
   view : string,
   formComponent : (formikProps: any) => ReactNode,
   initialValues : any,
+  endPoint : string
 }
 export function Crud ({
   view,
   initialValues,
   formComponent,
+  endPoint
 }:ICrud) {
   
   const [viewPage, setViewPage] = useState(view);
@@ -34,6 +36,7 @@ export function Crud ({
       </If>
       <If test={viewPage === 'create'}>
         <Form 
+         endPoint={endPoint}
          initialValues={initialValues}
          children={formComponent}
         />

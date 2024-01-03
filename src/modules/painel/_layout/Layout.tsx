@@ -18,7 +18,8 @@ export function Layout() {
       setAba('dashboard');
       setCurrentPage(() => pages[0]?.component);
     }
-  }, [currentPage])
+  }, [currentPage]);
+  
   function handleNavigatePage(page: string, menu: string) {
     setAba(page);
     setAbaMenu(menu);

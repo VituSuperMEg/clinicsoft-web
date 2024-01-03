@@ -2,12 +2,15 @@ import { Formik, Form as FormikForm, FormikHelpers } from "formik";
 import { If } from "../../../helpers/If";
 import { useEffect, useState } from "react";
 import { setorMocks } from "../../../mocks/mocks";
+import { api } from "../../../services/api";
+import { Messages } from "../../../helpers/messages";
 
 interface IForm {
   initialValues: [];
   children: (formikProps: FormikHelpers<any>) => React.ReactNode;
   view?: string;
   itemId?: number;
+  endPoint : string;
 }
 
 interface ISetor {
@@ -16,29 +19,18 @@ interface ISetor {
   cbo : string;
   quantidade_de_profissionais : string;
 }
-export function Form({ initialValues, children, view = 'create', itemId}: IForm) {
+export function Form({ initialValues, children, view = 'create', itemId, endPoint}: IForm) {
 
-  const [item, setItem] = useState({} as ISetor);
-  
-  useEffect(() => {
-    if(itemId) {
-      let id = itemId;
-      if(itemId === 1) {
-        id = 0;
-      }else if(itemId === 2) {
-        id = 1;
-      }
-      setItem(setorMocks[id]);
-    }
-  }, [itemId]);
-  
+  const msg = new Messages();
+
   return (
     <>
     <If test={view === 'create'}>
     <Formik
       initialValues={initialValues}
-      onSubmit={(values) => {
-        console.log(values);
+      onSubmit={async (values : any) => {
+        await api(`${endPoint}/create`, values);
+        msg.success('Registro cadastrado com sucesso!');
       }}
     >
       {(formikProps) => (
@@ -60,7 +52,7 @@ export function Form({ initialValues, children, view = 'create', itemId}: IForm)
     </Formik>
     </If>
     <If test={view === 'edit'}>
-    <Formik
+    {/* <Formik
       initialValues={item}
       onSubmit={(values) => {
         console.log(values);
@@ -82,7 +74,7 @@ export function Form({ initialValues, children, view = 'create', itemId}: IForm)
           </div>
         </FormikForm>
       )}
-    </Formik>
+    </Formik> */}
     </If>
     </>
    
