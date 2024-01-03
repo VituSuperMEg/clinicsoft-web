@@ -3,7 +3,7 @@ import {
   CaretDown,
   CaretUp,
   FolderPlus,
-  HouseSimple,
+  House,
   CalendarBlank,
   FileText,
   CurrencyDollar,
@@ -24,10 +24,10 @@ export function Menu({ onNavigatePage }: IMenu) {
   };
 
   return (
-    <ul className=" w-72 h-screen  pt-28  flex column justify-between pb-12 border-top-left">
-      <div>
-        <li className="clicked" onClick={() => onNavigatePage("dashboard")}>
-          <HouseSimple size={30} />
+    <ul className=" w-72 h-screen pl-6 pt-28  flex column justify-between  pb-12 border-top-left">
+      <div className="flex column gap-3">
+        <li className="clicked w-8" onClick={() => onNavigatePage("dashboard")}>
+          <House className="clicked" size={30} />
         </li>
         <li onClick={() => toggleSubMenu("cadastro")}>
           <span className="flex items-center gap-2">
@@ -39,7 +39,7 @@ export function Menu({ onNavigatePage }: IMenu) {
             )}{" "}
           </span>
           {isSubMenuOpen && menu === "cadastro" && (
-            <ul>
+            <ul className="p-2">
               <li onClick={() => onNavigatePage("Setor", "Cadastros")}>
                 Setor
               </li>
@@ -62,7 +62,7 @@ export function Menu({ onNavigatePage }: IMenu) {
             )}{" "}
           </span>
           {isSubMenuOpen && menu === "agendamentos" && (
-            <ul>
+            <ul className="p-2">
               <li onClick={() => onNavigatePage("Consultas", "Agendamentos")}>
                 Consultas
               </li>
@@ -85,7 +85,7 @@ export function Menu({ onNavigatePage }: IMenu) {
             )}{" "}
           </span>
           {isSubMenuOpen && menu === "relatórios" && (
-            <ul>
+            <ul className="p-2">
               <li
                 onClick={() => onNavigatePage("Relatórios", "Fila de Espera")}
               >
@@ -112,7 +112,7 @@ export function Menu({ onNavigatePage }: IMenu) {
             {!isSubMenuOpen && menu === "estoque" ? <CaretDown /> : <CaretUp />}{" "}
           </span>
           {isSubMenuOpen && menu === "estoque" && (
-            <ul>
+            <ul className="p-2">
               <li onClick={() => onNavigatePage("Relatórios", "Agendamentos")}>
                 Medicamentos
               </li>
@@ -135,7 +135,7 @@ export function Menu({ onNavigatePage }: IMenu) {
             )}{" "}
           </span>
           {isSubMenuOpen && menu === "financeiro" && (
-            <ul>
+            <ul className="p-2">
               <li onClick={() => onNavigatePage("Relatórios", "Agendamentos")}>
                 Redimentos
               </li>
@@ -152,7 +152,7 @@ export function Menu({ onNavigatePage }: IMenu) {
             )}{" "}
           </span>
           {isSubMenuOpen && menu === "usuarios" && (
-            <ul>
+            <ul className="p-2">
               <li onClick={() => onNavigatePage("Usuários", "Autorizações")}>
                 Usuários
               </li>

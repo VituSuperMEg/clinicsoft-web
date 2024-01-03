@@ -61,10 +61,10 @@ export function Layout() {
         </If>
         <If test={aba === "dashboard"}>
           <div
-            style={{
-              margin: "20px 50px",
-            }}
           >
+             <div className="left h-16">
+               <UserInfo /> 
+              </div>
             {/* <PillMenu onNavigatePage={handleNavigatePage} pages={recentAba} /> */}
             {currentPage && createElement(currentPage)}
           </div>
