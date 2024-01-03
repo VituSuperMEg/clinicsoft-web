@@ -15,7 +15,7 @@ export function WeekColor() {
     "Nov",
     "Dec",
   ];
-  const countWeek = Number(new Date().getMonth() - 11);
+  const countWeek = Number(new Date().getMonth());
   const week = weeks[countWeek];
   return (
     <div className="flex items-center justify-center h-full">

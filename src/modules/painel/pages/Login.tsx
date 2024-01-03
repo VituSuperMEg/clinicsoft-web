@@ -1,4 +1,5 @@
 import { InputText } from "../../../components/inputs/InputText";
+import { api } from "../../../services/api";
 import { WeekColor } from "../components/WeekColor";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as yup from "yup";
@@ -28,8 +29,8 @@ export function Login() {
             <Formik
               initialValues={emptyObject}
               validationSchema={LoginValidation}
-              onSubmit={(values) => {
-                console.log(values);
+              onSubmit={async (values) => {
+                 const response = await api.post('/login/', values);
               }}
             >
               {({ handleChange, handleSubmit }) => (

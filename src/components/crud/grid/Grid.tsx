@@ -15,7 +15,7 @@ interface IGrid {
 export function Grid({ onViewChange, onEditId, endPoint, fiedls}: IGrid) {
 
   const [data, setData] = useState([]);
-  
+
   function handleViewCrud(view: string) {
     onViewChange(view);
   }
@@ -43,7 +43,7 @@ export function Grid({ onViewChange, onEditId, endPoint, fiedls}: IGrid) {
               {fiedls.map(i => (
                 <td>{data[i.name]}</td>
               ))}
-              <td 
+              <td
                className="bg-emerald-500 mt-2"
                style={{
                  width: '50px',
@@ -55,14 +55,13 @@ export function Grid({ onViewChange, onEditId, endPoint, fiedls}: IGrid) {
                }}
               >
                 <PencilSimple
-                  color="#000"
+                  color="#fff"
                   className="clicked"
                   onClick={() => {
                     handleViewCrud("edit");
                     onEditId(data.id);
                   }}
                 />
-
               </td>
             </tr>
           ))}

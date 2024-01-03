@@ -3,7 +3,7 @@ import { If } from "../../helpers/If";
 import { PainelRouter } from "./routes/PainelRouter";
 
 export function Painel() {
-  const authentication = true;
+  const authentication = false;
   return (
     <div className="bg-slate-200 h-screen w-screen">
       <If test={authentication}>

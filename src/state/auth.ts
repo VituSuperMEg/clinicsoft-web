@@ -10,7 +10,6 @@ interface IAuthentication {
   user : IUser[];
 }
 
-
 export const useUser = create<IAuthentication>(set => {
   return {
     user : []
