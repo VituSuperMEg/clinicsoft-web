@@ -11,7 +11,7 @@ import mulher from "../../../../assets/mulher.png";
 export function DadosPacientes({ item }) {
   return (
     <div>
-      <If test={item.values.sexo === "F"}>
+      <If test={item.values.sexo === "F" || item.values.sexo === "M"}>
         <div className="flex items-center gap-3">
           <div
             className="bg-emerald-500 flex items-center justify-center"

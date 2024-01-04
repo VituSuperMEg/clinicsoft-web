@@ -1,39 +1,36 @@
-import InputMask from "react-input-mask";
-import { IInput } from "./interface-input";
-import NextInput from "../../helpers/NextInput";
-import { If } from "../../helpers/If";
 
-export const InputText = ({
+import { If } from "../../helpers/If";
+import { IInput } from "./interface-input";
+
+export const InputDate = ({
   name,
   label,
-  maskField,
   required,
   messageErros,
   autofocus,
-  next,
-  className,
   inputStyle,
+  className,
   ...props
-}: IInput) => {
+}:IInput) => {
   return (
     <div className={`${className}`}>
       <If test={label !== undefined}>
         <label htmlFor={name}>
           {label}
-          <If test={required === "required"}>
+          <If test={required === 'required'}>
             <span className="required"> *</span>
           </If>
         </label>
       </If>
-      {next && <NextInput />}
-      <InputMask
+      <input
         name={name}
-        mask={maskField}
         className={`form-control ${inputStyle}`}
-        autoFocus={autofocus}
+        autofocus={autofocus}
+        type="date"
+        style={{padding: '0.2rem 0.8rem !important'}}
         {...props}
       />
-      <span style={{ color: "red" }}>{messageErros}</span>
+      <span style={{ color: 'red' }}>{messageErros}</span>
     </div>
   );
 };

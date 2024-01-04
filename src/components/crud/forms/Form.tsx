@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { api } from "../../../services/api";
 import { Messages } from "../../../helpers/messages";
 import * as yup from 'yup';
+import { desformatarCPF } from "../../../helpers/format";
 
 interface IForm {
   initialValues: [];
@@ -51,6 +52,7 @@ export function Form({
           validationSchema={validation}
           initialValues={initialValues}
           onSubmit={async (values: any) => {
+            values.cpf = desformatarCPF(values.cpf);
             await api.post(`${endPoint}-create/`, values);
             msg.success("Registro cadastrado com sucesso!");
             onAlterPage('list');
@@ -75,7 +77,6 @@ export function Form({
         <Formik
           initialValues={item}
           enableReinitialize
-          validationSchema={validation}
           onSubmit={async (values) => {
             await api.put(`${endPoint}/${itemId}/`,values);
             msg.success("Registro alterado com sucesso!");

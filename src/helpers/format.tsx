@@ -16,3 +16,6 @@ export function formatarData(data : string): string {
 
   return `${dia}/${mes}/${ano}`;
 }
+export function desformatarCPF(cpf: string): string {
+  return cpf.replace(/\D/g, '');
+}

@@ -21,6 +21,7 @@ interface IGrid {
 }
 export function Grid({ onViewChange, onEditId, endPoint, fiedls }: IGrid) {
   const msg = new Messages();
+
   const { data, refetch } = useLoadData(endPoint);
 
   function handleViewCrud(view: string) {

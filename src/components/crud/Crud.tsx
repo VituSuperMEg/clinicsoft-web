@@ -17,6 +17,7 @@ interface ICrud {
     },
   ];
   validation: (yup: typeof yup) => yup.ObjectSchema<Partial<any>>;
+  onView : (view : string) => void;
 }
 export function Crud({
   view = 'list',
@@ -24,7 +25,8 @@ export function Crud({
   formComponent,
   endPoint,
   fiedls,
-  validation
+  validation,
+  onView
 }: ICrud) {
 
   const [viewPage, setViewPage] = useState(view);
@@ -33,6 +35,7 @@ export function Crud({
 
   function handleAlterCrudPage(view: string) {
     setViewPage(view);
+    onView(view)
   }
 
   return (
