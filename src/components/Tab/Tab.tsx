@@ -14,7 +14,7 @@ export function TabComponent ({
   return (
     <Tabs
      defaultActiveKey={defaultTab}
-     transition={false}
+     transition={true}
      id="noanim-tab-example"
      className={`${className}`}
     >
