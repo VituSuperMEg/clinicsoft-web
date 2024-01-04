@@ -42,7 +42,7 @@ export function Grid({ onViewChange, onEditId, endPoint, fiedls }: IGrid) {
             {fiedls.map((i) => (
               <th className="text-zinc-500">{i.label}</th>
             ))}
-            <th className="text-zinc-500 float-right">Ações</th>
+            <th className="text-zinc-500 float-right mr-8">Ações</th>
           </thead>
           <tbody>
             {data &&

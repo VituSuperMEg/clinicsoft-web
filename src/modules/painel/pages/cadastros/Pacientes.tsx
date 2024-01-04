@@ -8,7 +8,7 @@ const medicosValidation = yup.object().shape({
   nome :  yup.string().required('Campo Obrigátorio'),
   crm: yup.string().required('Campo Obrigatório').min(7, 'No mínimo 7 caracteres').max(7, 'No máximo 7 caracteres')
 })
-export function Medicos() {
+export function Pacientes() {
   return (
     <div>
       <Crud
@@ -23,27 +23,35 @@ export function Medicos() {
         validation={medicosValidation}
         fiedls={[
           {
-            label: "CRM",
-            name: "crm",
-          },
-          {
             label: "Nome",
             name: "nome",
           },
           {
-            label: "CBO",
-            name: "cbo",
+            label : 'CPF',
+            name: "cpf",
+          },
+          {
+            label: "RG",
+            name: "rg",
+          },
+          {
+            label: "Data de Nascimento",
+            name: "dt_nascimento",
           },
           {
             label: "Telefone",
             name: "telefone",
           },
           {
-            label: "Especialização",
-            name: "especializacao",
+            label: "E-mail",
+            name: "email",
+          },
+          {
+            label: "Rua",
+            name: "rua",
           },
         ]}
-        endPoint="/medicos"
+        endPoint="/pacientes"
         formComponent={(props) => (
           <>
             <Field

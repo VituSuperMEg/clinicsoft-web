@@ -2,6 +2,7 @@ import { DashBoard } from "../pages/Dashborad";
 import { Exames } from "../pages/agendamentos/exames";
 import { Retorno } from "../pages/agendamentos/retorno";
 import { Medicos } from "../pages/cadastros/Medicos";
+import { Pacientes } from "../pages/cadastros/Pacientes";
 import { Setor } from "../pages/cadastros/Setor";
 import { MaterialEscritorio } from "../pages/estoque/materialEscritorio";
 import { Medicamentos } from "../pages/estoque/medicamentos";
@@ -23,6 +24,10 @@ export const pages = [
   {
     page: "medicos",
     component: Medicos,
+  },
+  {
+    page: "pacientes",
+    component: Pacientes,
   },
   {
     page : 'Exames',
