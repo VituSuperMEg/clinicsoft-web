@@ -27,11 +27,13 @@ export function Menu({ onNavigatePage }: IMenu) {
     <ul className=" w-72 h-screen pl-6 pt-28  flex column justify-between  pb-12 border-top-left">
       <div className="flex column gap-3">
         <li className="clicked w-8" onClick={() => onNavigatePage("dashboard")}>
-          <House className="clicked" size={30} />
+          <House className="clicked text-emerald-500" size={30} />
         </li>
         <li onClick={() => toggleSubMenu("cadastro")}>
           <span className="flex items-center gap-2">
-            <FolderPlus size={30} /> Cadastros{" "}
+            <FolderPlus size={30} className="text-emerald-500"/>
+            <p >Cadastros</p>
+            {" "}
             {!isSubMenuOpen && menu === "cadastro" ? (
               <CaretDown />
             ) : (
@@ -54,7 +56,7 @@ export function Menu({ onNavigatePage }: IMenu) {
         </li>
         <li onClick={() => toggleSubMenu("agendamentos")}>
           <span className="flex items-center gap-2">
-            <CalendarBlank size={30} /> Agendamentos{" "}
+            <CalendarBlank size={30} className="text-emerald-500"/> Agendamentos{" "}
             {!isSubMenuOpen && menu === "agendamentos" ? (
               <CaretDown />
             ) : (
@@ -77,7 +79,7 @@ export function Menu({ onNavigatePage }: IMenu) {
         </li>
         <li onClick={() => toggleSubMenu("relatórios")}>
           <span className="flex items-center gap-2">
-            <FileText size={30} /> Relatórios{" "}
+            <FileText size={30} className="text-emerald-500"/> Relatórios{" "}
             {!isSubMenuOpen && menu === "relatórios" ? (
               <CaretDown />
             ) : (
@@ -108,7 +110,7 @@ export function Menu({ onNavigatePage }: IMenu) {
         </li>
         <li onClick={() => toggleSubMenu("estoque")}>
           <span className="flex items-center gap-2">
-            <FolderPlus size={30} /> Estoque{" "}
+            <FolderPlus size={30} className="text-emerald-500"/> Estoque{" "}
             {!isSubMenuOpen && menu === "estoque" ? <CaretDown /> : <CaretUp />}{" "}
           </span>
           {isSubMenuOpen && menu === "estoque" && (
@@ -127,7 +129,7 @@ export function Menu({ onNavigatePage }: IMenu) {
         </li>
         <li onClick={() => toggleSubMenu("financeiro")}>
           <span className="flex items-center gap-2">
-            <CurrencyDollar size={30} /> Financeiro{" "}
+            <CurrencyDollar size={30} className="text-emerald-500"/> Financeiro{" "}
             {!isSubMenuOpen && menu === "usuarios" ? (
               <CaretDown />
             ) : (
@@ -144,7 +146,7 @@ export function Menu({ onNavigatePage }: IMenu) {
         </li>
         <li onClick={() => toggleSubMenu("usuarios")}>
           <span className="flex items-center gap-2">
-            <User size={30} /> Autorizações{" "}
+            <User size={30} className="text-emerald-500"/> Autorizações{" "}
             {!isSubMenuOpen && menu === "usuarios" ? (
               <CaretDown />
             ) : (

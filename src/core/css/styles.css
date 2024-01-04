@@ -5,7 +5,10 @@
  font-family: 'Poppins', sans-serif;
 
 }
-/* 
+.bg-primary-css {
+  background : #FFFAF0;
+}
+/*
  Css das paginas
 */
 .btn-crud {
@@ -55,7 +58,7 @@
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
 }
-/* 
+/*
  Flex Content
 */
 .start {
@@ -66,8 +69,8 @@
   display: flex;
   flex-direction: column;
 }
-/* 
- Form 
+/*
+ Form
 */
 .form {
   width: 80%;
@@ -131,7 +134,7 @@
 .justify {
   text-align: justify;
 }
-/* 
+/*
  Margin
 */
 .m-s-150 {

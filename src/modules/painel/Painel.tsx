@@ -17,7 +17,7 @@ export function Painel() {
 
 
   return (
-    <div className="bg-slate-200 h-screen w-screen">
+    <div className="bg-primary-css h-screen w-screen">
       <If test={authentication}>
         <PainelRouter />
       </If>
