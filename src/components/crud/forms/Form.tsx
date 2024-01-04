@@ -84,12 +84,12 @@ export function Form({
           {(formikProps) => (
             <FormikForm onSubmit={formikProps.handleSubmit} className="p-5">
               {children(formikProps)}
-              <div className="left">
-                <button className="bg-emerald-800 p-3 text-white rounded-md hover:opacity-90" type="submit">
+              <div className="left mt-3 gap-2">
+                <button className="bg-emerald-500 p-3 text-white rounded-md hover:opacity-90" type="submit">
                   Salvar
                 </button>
-                <button className="bg-red-800 p-3 text-white rounded-md hover:opacity-90" type="button" onClick={() => remove()}>
-                  Excluir
+                <button className="bg-red-500 p-3 text-white rounded-md hover:opacity-90" type="button" onClick={() => remove()}>
+                  Cancelar
                 </button>
               </div>
             </FormikForm>
