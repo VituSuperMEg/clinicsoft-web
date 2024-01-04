@@ -55,7 +55,6 @@ export function Login() {
                  <Field
                     id="password"
                     label="Senha"
-                    autofocus
                     name="password"
                     required="required"
                     className="w-full"

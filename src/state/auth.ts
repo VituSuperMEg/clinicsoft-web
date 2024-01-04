@@ -11,6 +11,7 @@ interface IUser {
 interface IAuthentication {
   isAuthenticated: boolean;
   onLogin: (cpf: string, password: string) => Promise<void>;
+  logout : () => void;
 }
 
 export const useUser = create<IAuthentication>(set => {
@@ -29,5 +30,8 @@ export const useUser = create<IAuthentication>(set => {
         console.error('Erro durante a autenticação:', error);
       }
     },
+    logout : () => {
+      set({ isAuthenticated : false });
+    }
   };
 });

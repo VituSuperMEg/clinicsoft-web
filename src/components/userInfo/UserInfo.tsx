@@ -9,11 +9,14 @@ import { Plight } from "./plight/Plight";
 export function UserInfo() {
   const msg = new Messages();
   const signOut = <Tooltip>Sair</Tooltip>;
+  const logout = useUser(state => state.logout);
 
   async function handleSignOut() {
+
+
     const check =  await msg.confirmationReturn('Deseja realmente sair do sistema?', 'Sair')
     if (check) {
-      alert("Saiu");
+      logout()
     }
   }
   return (
@@ -29,8 +32,8 @@ export function UserInfo() {
       </div>
       <OverlayTrigger placement="bottom" overlay={signOut} trigger="hover">
         <div className="bg-slate-100 p-2 rounded-lg clicked">
-          <SignOut 
-           size={30} 
+          <SignOut
+           size={30}
            onClick={() => handleSignOut()}
            className="text-red-800"
           />

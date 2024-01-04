@@ -1,11 +1,13 @@
-import { PencilSimple, Scroll } from "@phosphor-icons/react";
+import { PencilSimple, Scroll, Trash } from "@phosphor-icons/react";
 import { Table } from "../styles";
 import { useLoadData } from "../../../queries/loadData";
 import { If } from "../../../helpers/If";
+import { Messages } from "../../../helpers/messages";
 
 interface IGrid {
   onViewChange: (view: string) => void;
   onEditId: (id: number) => void;
+  onDeleteId: (id: number) => void;
   endPoint: string;
   fiedls: [
     {
@@ -14,13 +16,19 @@ interface IGrid {
     },
   ];
 }
-export function Grid({ onViewChange, onEditId, endPoint, fiedls }: IGrid) {
+export function Grid({ onViewChange, onEditId, endPoint, fiedls, onDeleteId }: IGrid) {
+  const msg = new Messages();
   const { data } = useLoadData(endPoint);
 
   function handleViewCrud(view: string) {
     onViewChange(view);
   }
-
+  async function handleDeleteId (id : number) {
+     const check = await msg.confirmationDeleteReturn("Deseja realmente excluir esse  item?");
+     if(check){
+       msg.success('Item excluindo com sucesso!');
+     }
+  }
   return (
     <div className="p-6">
       <If test={data}>
@@ -29,7 +37,7 @@ export function Grid({ onViewChange, onEditId, endPoint, fiedls }: IGrid) {
             {fiedls.map((i) => (
               <th className="text-zinc-500">{i.label}</th>
             ))}
-            <th className="text-zinc-500">Ações</th>
+            <th className="text-zinc-500 float-right">Ações</th>
           </thead>
           <tbody>
             {data &&
@@ -38,6 +46,7 @@ export function Grid({ onViewChange, onEditId, endPoint, fiedls }: IGrid) {
                   {fiedls.map((i) => (
                     <td key={i.name}>{item[i.name]}</td>
                   ))}
+                  <div className="flex float-right gap-2">
                   <td
                     className="bg-emerald-500 mt-2"
                     style={{
@@ -58,6 +67,26 @@ export function Grid({ onViewChange, onEditId, endPoint, fiedls }: IGrid) {
                       }}
                     />
                   </td>
+                  <td
+                    className="bg-red-500 mt-2"
+                    style={{
+                      width: "50px",
+                      height: "50px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      borderRadius: "50%",
+                    }}
+                  >
+                    <Trash
+                      color="#fff"
+                      className="clicked"
+                      onClick={() => {
+                        handleDeleteId(item.id);
+                      }}
+                    />
+                  </td>
+                  </div>
                 </tr>
               ))}
           </tbody>
