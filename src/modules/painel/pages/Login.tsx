@@ -1,5 +1,5 @@
 import { InputText } from "../../../components/inputs/InputText";
-import { api } from "../../../services/api";
+import { useUser } from "../../../state/auth";
 import { WeekColor } from "../components/WeekColor";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as yup from "yup";
@@ -9,10 +9,8 @@ const LoginValidation = yup.object().shape({
   password: yup.string().required("Informe sua senha"),
 });
 export function Login() {
-  const emptyObject = {
-    cpf: "",
-    password: "",
-  };
+
+  const onLogin = useUser(state => state.onLogin);
 
   return (
     <div className="flex items-center justify-center h-screen">
@@ -27,10 +25,14 @@ export function Login() {
               </p>
             </div>
             <Formik
-              initialValues={emptyObject}
+              initialValues={{
+                cpf: "",
+                password: "",
+              }}
               validationSchema={LoginValidation}
               onSubmit={async (values) => {
-                 const response = await api.post('/login/', values);
+                console.log(values)
+                 onLogin(values.cpf, values.password);
               }}
             >
               {({ handleChange, handleSubmit }) => (
@@ -50,17 +52,19 @@ export function Login() {
                     onChange={handleChange}
                     messageErros={<ErrorMessage name="cpf" />}
                   />
-                  <Field
+                 <Field
                     id="password"
                     label="Senha"
+                    autofocus
                     name="password"
-                    className="w-full"
                     required="required"
+                    className="w-full"
                     component={InputText}
+                    onChange={handleChange}
                     messageErros={<ErrorMessage name="password" />}
                   />
                   <button
-                    className="bg-emerald-800 p-5 text-white rounded-md w-4/6 hover:bg-emerald-700"
+                    className="bg-emerald-800 p-3 text-white rounded-md w-4/6 hover:bg-emerald-700"
                     type="submit"
                   >
                     Entrar

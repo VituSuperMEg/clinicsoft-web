@@ -1,9 +1,21 @@
 import { Login } from "./pages/Login";
 import { If } from "../../helpers/If";
 import { PainelRouter } from "./routes/PainelRouter";
+import { useUser } from '../../state/auth';
+import { useState, useEffect } from 'react';
 
 export function Painel() {
-  const authentication = false;
+
+  // zustand
+  const isAuthenticated = useUser(state => state.isAuthenticated)
+
+  const [authentication, setAuthentication] = useState(false);
+
+  useEffect(() => {
+    setAuthentication(isAuthenticated)
+  }, [isAuthenticated]);
+
+
   return (
     <div className="bg-slate-200 h-screen w-screen">
       <If test={authentication}>
