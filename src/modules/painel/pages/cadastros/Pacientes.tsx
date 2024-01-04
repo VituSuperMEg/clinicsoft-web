@@ -1,20 +1,23 @@
-import { ErrorMessage, Field } from "formik";
 import { Crud } from "../../../../components/crud/Crud";
-import { InputText } from "../../../../components/inputs/InputText";
-import * as yup from 'yup';
 import { DadosPacientes } from "../../shared/pacientes/DadosPacientes";
+import { If } from "../../../../helpers/If";
 
+import * as yup from "yup";
 
-const medicosValidation = yup.object().shape({
-  nome :  yup.string().required('Campo Obrigátorio'),
-  crm: yup.string().required('Campo Obrigatório').min(7, 'No mínimo 7 caracteres').max(7, 'No máximo 7 caracteres')
-})
+const medicosValidation = yup.object().shape({});
 export function Pacientes() {
   return (
     <div>
       <Crud
         initialValues={{
           nome: "",
+          dt_nascimento: "",
+          email: "",
+          cpf: "",
+          rg: "",
+          rua: "",
+          numero: "",
+          bairro: "",
         }}
         validation={medicosValidation}
         fiedls={[
@@ -23,7 +26,7 @@ export function Pacientes() {
             name: "nome",
           },
           {
-            label : 'CPF',
+            label: "CPF",
             name: "cpf",
           },
           {
@@ -50,9 +53,12 @@ export function Pacientes() {
         endPoint="/pacientes"
         formComponent={(props) => (
           <>
-            <DadosPacientes
-              item={props}
-            />
+            <If test={props.values.nome === ""}>
+              <p>novo</p>
+            </If>
+            <If test={props.values.nome !== ""}>
+              <DadosPacientes item={props} />
+            </If>
           </>
         )}
       />

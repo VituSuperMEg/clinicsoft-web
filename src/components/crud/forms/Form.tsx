@@ -79,6 +79,7 @@ export function Form({
           onSubmit={async (values) => {
             await api.put(`${endPoint}/${itemId}/`,values);
             msg.success("Registro alterado com sucesso!");
+            onAlterPage('list');
           }}
         >
           {(formikProps) => (
