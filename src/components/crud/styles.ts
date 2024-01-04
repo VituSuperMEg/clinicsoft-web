@@ -10,12 +10,12 @@ export const Table = styled.table`
    }
     tr {
       &:nth-child(odd) {
-        background-color: #ffffff;
+        background-color: #f2f2f2;
       }
 
       &:nth-child(even) {
-        background-color: #f2f2f2; 
+        background-color: #fff;
       }
-    } 
+    }
   }
 `;
