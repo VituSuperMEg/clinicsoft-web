@@ -41,7 +41,7 @@ export function Form({
        msg.success("Registro excluído com sucesso!");
        setInterval(() => {
         onAlterPage('list');
-       }, 1000);   
+       }, 1000);
     }
   }
   return (
@@ -53,6 +53,7 @@ export function Form({
           onSubmit={async (values: any) => {
             await api.post(`${endPoint}-create/`, values);
             msg.success("Registro cadastrado com sucesso!");
+            onAlterPage('list');
           }}
         >
           {(formikProps) => (

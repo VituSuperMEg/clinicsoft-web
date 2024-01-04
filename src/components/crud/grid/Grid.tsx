@@ -3,6 +3,8 @@ import { Table } from "../styles";
 import { useLoadData } from "../../../queries/loadData";
 import { If } from "../../../helpers/If";
 import { Messages } from "../../../helpers/messages";
+import { api } from "../../../services/api";
+import { queryClient } from "../../../services/queryClient";
 
 interface IGrid {
   onViewChange: (view: string) => void;
@@ -16,19 +18,22 @@ interface IGrid {
     },
   ];
 }
-export function Grid({ onViewChange, onEditId, endPoint, fiedls, onDeleteId }: IGrid) {
+export function Grid({ onViewChange, onEditId, endPoint, fiedls }: IGrid) {
   const msg = new Messages();
-  const { data } = useLoadData(endPoint);
+  const { data, refetch  } = useLoadData(endPoint);
 
   function handleViewCrud(view: string) {
     onViewChange(view);
   }
-  async function handleDeleteId (id : number) {
-     const check = await msg.confirmationDeleteReturn("Deseja realmente excluir esse  item?");
-     if(check){
-       msg.success('Item excluindo com sucesso!');
-     }
-  }
+  async function handleRemove(itemId : number) {
+    const check = await msg.confirmationDeleteReturn('Tem certeza de que deseja excluir este item?');
+    if(check) {
+      api.delete(`${endPoint}/${itemId}/`);
+      queryClient.invalidateQueries(["data", { endPoint }]);
+      refetch();
+      msg.success("Registro excluído com sucesso!");
+    }
+ }
   return (
     <div className="p-6">
       <If test={data}>
@@ -82,7 +87,7 @@ export function Grid({ onViewChange, onEditId, endPoint, fiedls, onDeleteId }: I
                       color="#fff"
                       className="clicked"
                       onClick={() => {
-                        handleDeleteId(item.id);
+                        handleRemove(item.id);
                       }}
                     />
                   </td>
