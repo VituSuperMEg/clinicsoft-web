@@ -9,16 +9,18 @@ import { Plight } from "./plight/Plight";
 export function UserInfo() {
   const msg = new Messages();
   const signOut = <Tooltip>Sair</Tooltip>;
-  const logout = useUser(state => state.logout);
+  const logout = useUser((state) => state.logout);
 
   async function handleSignOut() {
-
-
-    const check =  await msg.confirmationReturn('Deseja realmente sair do sistema?', 'Sair')
+    const check = await msg.confirmationReturn(
+      "Deseja realmente sair do sistema?",
+      "Sair",
+    );
     if (check) {
-      logout()
+      logout();
     }
   }
+  const user = useUser(state => state.user);
   return (
     <div className="flex items-center gap-3 pr-5">
       <Plight status="0" />
@@ -27,15 +29,15 @@ export function UserInfo() {
         <AvatarImage src="/vite.svg" />
       </Avatar>
       <div>
-        <p>Root</p>
-        <strong>Hospital Regional de Cedro</strong>
+        <p>{user.name}</p>
+        <strong>{user.email}</strong>
       </div>
       <OverlayTrigger placement="bottom" overlay={signOut} trigger="hover">
         <div className="bg-slate-100 p-2 rounded-lg clicked">
           <SignOut
-           size={30}
-           onClick={() => handleSignOut()}
-           className="text-red-800"
+            size={30}
+            onClick={() => handleSignOut()}
+            className="text-red-800"
           />
         </div>
       </OverlayTrigger>
