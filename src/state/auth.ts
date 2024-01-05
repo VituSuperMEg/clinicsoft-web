@@ -41,7 +41,7 @@ export const useUser = create(
           }
         } catch (error) {
           msg.error(error.response.data.non_field_errors[0]);
-          console.error('Erro durante a autenticação:', error);
+          msg.error('Erro durante a autenticação:', error);
         }
       },
       logout: () => {

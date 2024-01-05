@@ -43,7 +43,6 @@ export function Login() {
                   <Field
                     id="cpf"
                     label="CPF"
-                    autofocus
                     name="cpf"
                     required="required"
                     maskField={"999.999.999-99"}
