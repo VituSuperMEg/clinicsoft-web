@@ -45,4 +45,11 @@ export class Messages {
       text: msg,
     });
   }
+  error(msg) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Erro',
+      text: msg,
+    });
+  }
 }

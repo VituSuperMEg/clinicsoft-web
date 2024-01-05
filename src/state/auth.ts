@@ -40,7 +40,7 @@ export const useUser = create(
             setToken(response.data.token);
           }
         } catch (error) {
-          msg.success(error);
+          msg.error(error.response.data.non_field_errors[0]);
           console.error('Erro durante a autenticação:', error);
         }
       },
