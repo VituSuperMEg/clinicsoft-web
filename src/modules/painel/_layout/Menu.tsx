@@ -8,6 +8,7 @@ import {
   FileText,
   CurrencyDollar,
   User,
+  Gear,
 } from "@phosphor-icons/react";
 
 interface IMenu {
@@ -146,7 +147,7 @@ export function Menu({ onNavigatePage }: IMenu) {
         </li>
         <li onClick={() => toggleSubMenu("usuarios")}>
           <span className="flex items-center gap-2">
-            <User size={30} className="text-emerald-500"/> Autorizações{" "}
+            <Gear size={30} className="text-emerald-500"/> Configurações{" "}
             {!isSubMenuOpen && menu === "usuarios" ? (
               <CaretDown />
             ) : (
@@ -157,6 +158,9 @@ export function Menu({ onNavigatePage }: IMenu) {
             <ul className="p-2">
               <li onClick={() => onNavigatePage("Usuários", "Autorizações")}>
                 Usuários
+              </li>
+              <li onClick={() => onNavigatePage("Carrosouel", "Configurações")}>
+                Configurar Carrosouel de imagens
               </li>
             </ul>
           )}
