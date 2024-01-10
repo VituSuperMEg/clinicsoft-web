@@ -1,7 +1,7 @@
 import { FirstAidKit } from "@phosphor-icons/react";
 import { DashboardStyle, Scrolling } from ".";
-import { CardValue } from "../../../components/cardvalue/CardValue";
 import { Slider } from "../components/Slider";
+import { LineChart } from "../../../components/charts/LineChart";
 
 export function DashBoard() {
   return (
@@ -9,17 +9,23 @@ export function DashBoard() {
       <Scrolling>
         <Slider />
         <div className="mt-6">
-        <CardValue
-          className="bg-white w-72 h-56 shadow-md flex rounded-sm"
-          icon={<FirstAidKit size={30} color="white"/>}
-          iconBg="blue"
-          amount={500}
-          directIconAndAmount="column"
-          title={{
-            title : "Médicos",
-            size : 25
+         <LineChart
+          options={{
+            chart : {
+              id : "basic-line"
+            },
+            xaxis : {
+              categories : [2022,2023,2024]
+            }
           }}
-        />
+          series={[
+            {
+              name : "series-1",
+              data : [50,40,30]
+            }
+          ]}
+          width={500}
+         />
         </div>
       </Scrolling>
     </DashboardStyle>
