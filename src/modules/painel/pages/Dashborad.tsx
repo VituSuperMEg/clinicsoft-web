@@ -10,8 +10,9 @@ export function DashBoard() {
         <Slider />
         <div className="mt-6">
         <CardValue
-          className="bg-white w-96 h-56 shadow-md"
-          icon={<FirstAidKit size={30}/>}
+          className="bg-white w-72 h-56 shadow-md flex rounded-sm"
+          icon={<FirstAidKit size={30} color="white"/>}
+          iconBg="blue"
           amount={500}
           directIconAndAmount="column"
           title={{

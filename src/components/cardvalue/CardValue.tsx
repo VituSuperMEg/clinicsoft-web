@@ -2,8 +2,13 @@ import { ReactNode } from "react";
 import { If } from "../../helpers/If";
 
 interface ICardValue {
-  title: string;
+  title: {
+    title: string;
+    size?: number;
+    color?: string;
+  };
   icon: ReactNode;
+  iconBg?: 'red' | 'green' | 'yellow' | 'blue';
   amount: number;
   directIconAndAmount?: "column" | "row";
   currentDate?: boolean;
@@ -16,19 +21,45 @@ export function CardValue({
   amount,
   currentDate = false,
   directIconAndAmount = "column",
+  iconBg
 }: ICardValue) {
+
+  const iconColors = {
+    'red': '#ef4444',
+    'green': '#10b981',
+    'yellow': '#eab308',
+    'blue': '#3b82f6',
+  };
+
   return (
     <div className={`${className}`}>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: directIconAndAmount === "column" ? "column" : "row",
-        }}
-      >
-        {icon}
-        <h1>{amount}</h1>
-      </div>
-      {title}
+      <If test={directIconAndAmount === "column"}>
+        <div className="flex items-center justify-center gap-10 w-full">
+          <div style={{
+            backgroundColor : iconColors[iconBg],
+            width : iconBg ?  50 : 0,
+            height : iconBg ? 50 : 0,
+            display : "flex",
+            alignItems : "center",
+            justifyContent : "center",
+            borderRadius: "50%"
+          }}>
+          {icon}
+          </div>
+          <div>
+            <h1>{amount}</h1>
+            <span
+              style={{
+                fontSize: !title.size ? "15px" : title.size,
+                color: !title.color ? "#000" : title.color,
+              }}
+            >
+              {title.title}
+            </span>
+          </div>
+        </div>
+      </If>
+
       <If test={currentDate}>
         <strong>{new Date().toLocaleDateString()}</strong>
       </If>
