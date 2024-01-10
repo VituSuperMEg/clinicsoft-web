@@ -22,19 +22,19 @@ export function Slider() {
     >
       <img
         src="https://th.bing.com/th?id=OIF.K%2bLaalu9oJFjbeLV0wKoKA&rs=1&pid=ImgDetMain"
-        style={{ width: '100%', height: '500px' }}
+        style={{ width: '100%', height: '400px'}}
       />
       <img
         src="https://th.bing.com/th?id=OIF.K%2bLaalu9oJFjbeLV0wKoKA&rs=1&pid=ImgDetMain"
-        style={{ width: '100%', height: '500px' }}
+        style={{ width: '100%', height: '400px' }}
       />
       <img
         src="https://th.bing.com/th?id=OIF.K%2bLaalu9oJFjbeLV0wKoKA&rs=1&pid=ImgDetMain"
-        style={{ width: '100%', height: '500px' }}
+        style={{ width: '100%', height: '400px' }}
       />
       <img
         src="https://th.bing.com/th?id=OIF.K%2bLaalu9oJFjbeLV0wKoKA&rs=1&pid=ImgDetMain"
-        style={{ width: '100%', height: '500px' }}
+        style={{ width: '100%', height: '400px' }}
       />
     </Carousel>
   );
